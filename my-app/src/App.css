@@ -1,13 +1,13 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: #121212; /* темнее и чище */
+  background: #121212; 
   color: #fff;
 }
 
-/* HEADER */
+
 header {
-  background: #6A1616; /* чуть темнее и ближе к макету */
+  background: #6A1616; 
   height: 70px;
   display: flex;
   align-items: center;
@@ -35,7 +35,6 @@ header {
 }
 
 .leftMenu::after {
-  content: "";
   position: absolute;
   right: 0;
   top: 0;
