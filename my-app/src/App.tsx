@@ -1,52 +1,51 @@
 import React from "react";
 
 
-export  function App() {
+import "./App.css";
+
+import "./App.css";
+
+function App() {
   return (
     <>
-
       <header>
-        <h1>Main Page</h1>
+        Main Page
       </header>
 
+      <main className="main">
 
-      <main>
-          <nav>
-            <h2>FreeTalk</h2>
+        <aside className="leftMenu">
+          <div className="leftMenuTitle">FreeTalk</div>
 
-            <ul>
-              <li>
-                <span>Posts</span>
-              </li>
-              <li>
-                <span>Profile</span>
-              </li>
-            </ul>
-          </nav>
+          <div className="leftMenuItem">
+            <span>📄</span> Posts
+          </div>
 
+          <div className="leftMenuItem">
+            <span>👤</span> Profile
+          </div>
+        </aside>
 
-        <section>
-          <article>
-            <header>
-              <div>
-                
-              </div>
-              <span>19.3k</span>
-            </header>
+        <div className="contentArea">
+          <div className="postCard">
+            <div className="postCardHeader">
+              <div className="avatarPlaceholder"></div>
+              <span className="likes">19.3k</span>
+            </div>
 
-            <p>Hello this my dog</p>
+            <p className="postText">Hello this my dog</p>
 
-            
-              <img src="/images/dog.jpg"/>
-          </article>
-        </section>
+            <img
+              className="postImage"
+              src="/images/dog.jpg"
+              alt="Dog"
+            />
+          </div>
+        </div>
+
       </main>
-
-      
-      <footer>
-        <p>FreeTalk © 2025</p>
-      </footer>
     </>
   );
 }
+
 export default App;

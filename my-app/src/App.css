@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #121212; /* темнее и чище */
+  color: #fff;
+}
+
+/* HEADER */
+header {
+  background: #6A1616; /* чуть темнее и ближе к макету */
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+}
+
+
+.main {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 70px);
+}
+
+
+.leftMenu {
+  width: 260px;
+  background: linear-gradient(180deg, #80006A, #4A0048);
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.leftMenu::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.leftMenuTitle {
+  font-size: 26px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.leftMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+
+.contentArea {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 180px; 
+  padding-top: 60px;
+}
+
+
+.postCard {
+  background: #00545B; 
+  width: 420px;
+  min-height: 500px;
+  border-radius: 28px;
+  padding: 22px 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+
+.postCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatarPlaceholder {
+  width: 55px;
+  height: 55px;
+  background: #CFCFCF;
+  border-radius: 50%;
+}
+
+.likes {
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+.postText {
+  margin: 15px 0 20px;
+  font-size: 20px;
+}
+
+
+.postImage {
+  width: 100%;
+  height: 260px;          
+  object-fit: cover;      
+  border-radius: 12px;
+  background: #00393D;
+}
