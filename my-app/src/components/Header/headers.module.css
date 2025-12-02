@@ -1,0 +1,9 @@
+.header {
+  width: 100%;
+  background: #7a0f0f; 
+  padding: 20px 40px;
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  box-sizing: border-box;
+}

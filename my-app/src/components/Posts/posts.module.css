@@ -1,0 +1,43 @@
+.postCard {
+  width: 420px;
+  background: #00353e;
+  padding: 20px;
+  border-radius: 25px;
+  color: white;
+}
+
+/* header post */
+.postCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* avatar */
+.avatarPlaceholder {
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* likes */
+.likes {
+  color: #a2b3b3;
+  font-size: 20px;
+}
+
+/* line before text */
+.postText {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid rgba(255, 255, 255, 0.25);
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* post image */
+.postImage {
+  width: 100%;
+  border-radius: 12px;
+}
