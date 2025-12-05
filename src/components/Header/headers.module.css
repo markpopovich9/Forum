@@ -1,0 +1,15 @@
+.header {
+  background: #4b0037;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  background: #5e0050;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
