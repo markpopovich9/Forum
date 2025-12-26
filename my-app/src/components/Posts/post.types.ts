@@ -1,0 +1,53 @@
+
+export interface ITag {
+    id: number;
+    name: string;
+}
+export interface ITagOnPost{
+    postId: number,
+    tagId: number,
+    tag: {
+        id: number,
+        name: string
+    }
+}
+export interface IUser{
+    id: number;
+    firstName: string;
+    secondName: string;
+    email: string;
+}
+export interface ILike{
+    id: number;
+    userId: number;
+    postId: number;
+    user: IUser;
+    post: IPost;
+}
+
+
+export interface IPropsPostCard{
+    post: IPost
+}
+export interface IPostsProps {
+    posts: IPost[]
+}
+
+export interface IPost {
+    id?: number | undefined;
+    title: string;
+    description: string;
+    image: string;
+    userId: number;
+    createdBy: IUser;
+    likes: ILike[];
+    tags?: ITagOnPost[];
+}
+export interface IProps {
+    inputData: string,
+    setFilteredPosts: (posts: IPost[]) => void,
+    filteredPosts: IPost[],
+    inputLikes: number;
+    inputTags: string[];
+    unfilteredPosts: IPost[]
+}
