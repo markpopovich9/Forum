@@ -3,7 +3,7 @@ import  Header  from "./components/Header/headers";
 import  Main  from "./components/Main/main";
 import  Footer  from "./components/Footer/footer";
 import "./App.css";
-
+import PostPage from "./components/pages/PossProduct/PostPage";
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -17,6 +17,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="posts" element={<PostsPage />} />
+          <Route path="/posts/:id" element={<PostPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,19 +1,18 @@
-import { IPost } from "../Posts/post.types";
-import  Post  from "../Posts/posts";
-import { useEffect, useState } from "react";
-export default function PostsPage() {
-    const [posts, setPosts] = useState<IPost[]>([]);
+import React from "react";
+import Post from "../Posts/posts";
+import { usePosts } from "../../hooks/UsePosts";
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/posts?skip=0&take=5")
-      .then(res => res.json())
-      .then(setPosts)
-      .catch(console.error);
-  }, []);
+export default function PostsPage() {
+  const { data: posts, loading, error } = usePosts();
+
+  if (loading) return <p>Загрузка...</p>;
+  if (error) return <p>Ошибка: {error}</p>;
+
   return (
     <div>
       <h1>Posts</h1>
-        {posts.map(post => (
+
+      {posts?.map(post => (
         <Post key={post.id} post={post} />
       ))}
     </div>
