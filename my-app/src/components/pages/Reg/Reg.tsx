@@ -1,40 +1,27 @@
 import { useForm } from "react-hook-form";
-import { useRegister } from "../../../hooks/UseReg";
-import styles from "./Register.module.css";
-
-interface RegisterForm {
-  email: string;
-  password: string;
-  username: string;
-  avatar: FileList;
-}
+import { RegisterForm } from "../../../shared/Types/types";
+import { useAuth } from "../../../context/AuthContext";
+import styles from "../Login/Login.module.css";
 
 const Register = () => {
+  const { register: registerUser } = useAuth();
+
   const { register, handleSubmit } = useForm<RegisterForm>();
-  const { registerUser, isLoading } = useRegister();
 
   const onSubmit = (data: RegisterForm) => {
-    const formData = new FormData();
-
-    formData.append("email", data.email);
-    formData.append("password", data.password);
-    formData.append("username", data.username);
-    formData.append("avatar", data.avatar[0]);
-
-    registerUser(formData);
+    registerUser(data);
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <input placeholder="Ім'я" {...register("username")} />
-      <input placeholder="Email" {...register("email")} />
-      <input type="password" placeholder="Пароль" {...register("password")} />
-      <input type="file" {...register("avatar")} />
+    <div className={styles.wrapper}>
+      <form className={styles.card} onSubmit={handleSubmit(onSubmit)}>
+        <input className={styles.input} placeholder="Username" {...register("username")} />
+        <input className={styles.input} placeholder="Email" {...register("email")} />
+        <input className={styles.input} type="password" placeholder="Password" {...register("password")} />
 
-      <button type="submit" disabled={isLoading}>
-        REGISTRATION
-      </button>
-    </form>
+        <button className={styles.button}>REGISTRATION</button>
+      </form>
+    </div>
   );
 };
 

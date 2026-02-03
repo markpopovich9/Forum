@@ -1,39 +1,53 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import { useLogin } from "../../../hooks/UseLogin";
+import { LoginForm } from "../../../shared/Types/types";
+import { useAuth } from "../../../context/AuthContext";
 import styles from "./Login.module.css";
-
-interface LoginForm {
-  email: string;
-  password: string;
-}
+import { useState } from "react";
 
 const Login = () => {
-  const { register, handleSubmit } = useForm<LoginForm>();
-  const { login, isLoading } = useLogin();
+  const { login } = useAuth();
+  const [apiError, setApiError] = useState("");
 
-  const onSubmit = (data: LoginForm) => {
-    login(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginForm>();
+
+  const onSubmit = async (data: LoginForm) => {
+    try {
+      await login(data);
+    } catch (e: any) {
+      setApiError(e.message);
+    }
   };
 
   return (
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <div className={styles.wrapper}>
+      <form className={styles.card} onSubmit={handleSubmit(onSubmit)}>
         <input
-            placeholder="Email"
-            {...register("email")}
+          className={styles.input}
+          placeholder="Email"
+          {...register("email", {
+            required: "Email обязателен",
+            validate: v => v.includes("@") && v.includes("."),
+          })}
         />
+        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
 
         <input
-            type="password"
-            placeholder="Пароль"
-            {...register("password")}
+          className={styles.input}
+          type="password"
+          placeholder="Пароль"
+          {...register("password", { required: "Пароль обязателен" })}
         />
 
-        <button type="submit" disabled={isLoading}>
-            AUTHORIZATION
-        </button>
-        </form>
-    );
+        {apiError && <p className={styles.error}>{apiError}</p>}
+
+        <button className={styles.button}>AUTHORIZATION</button>
+      </form>
+    </div>
+  );
 };
 
 export default Login;

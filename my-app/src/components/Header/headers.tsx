@@ -4,28 +4,39 @@ import Modal from "../../shared/Modal/Modax";
 import CreatePostForm from "../PostForm/PostForm";
 
 const Header = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    return (
-        <header style={{ marginBottom: "20px" }}>
-            <nav style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-                <Link to="/">Home</Link>
-                <Link to="/posts">Posts</Link>
+  return (
+    <header style={{ marginBottom: "20px" }}>
+      <nav
+        style={{
+          display: "flex",
+          gap: "20px",
+          alignItems: "center",
+        }}
+      >
+        <Link to="/">Home</Link>
+        <Link to="/posts">Posts</Link>
 
-                <button onClick={() => setIsModalOpen(true)}>
-                    Створити пост
-                </button>
-            </nav>
+        
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
+        <Link to="/profile">Profile</Link>
 
-            <Modal
-                isOpen={isModalOpen}
-                setIsOpen={setIsModalOpen}
-                doCloseOnClickOutside
-            >
-                <CreatePostForm />
-            </Modal>
-        </header>
-    );
+        <button onClick={() => setIsModalOpen(true)}>
+          Створити пост
+        </button>
+      </nav>
+
+      <Modal
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+        doCloseOnClickOutside
+      >
+        <CreatePostForm />
+      </Modal>
+    </header>
+  );
 };
 
 export default Header;
